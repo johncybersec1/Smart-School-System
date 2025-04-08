@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart School Management System</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="icon" href="{{ url_for('static', filename='fav.ico') }}" type="image/x-icon">
+    <style>
+        /* Global Styles */
+        body {
+            background-image: url("/static/back3.jpg");
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: red;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+            margin-right: 8px;
+            border-radius: 50%;
+        }
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ffdddd;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            color: black;
+            padding: 80px 0;
+            text-align: center;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #ff6666;
+        }
+        .hero-section h2 {
+            font-size: 2.8rem;
+            font-weight: bold;
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .cta-btn {
+            margin-top: 20px;
+            padding: 12px 28px;
+            background-color: #fff;
+            color: #ff4b4b;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .cta-btn:hover {
+            background-color: #ffdddd;
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 60px 0;
+            background-color: #ffffff;
+            text-align: center;
+        }
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ff4b4b;
+        }
+        .about-section p {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .card h5 {
+            font-size: 1.25rem;
+            color: #ff4b4b;
+        }
+        .card p {
+            color: #555;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 0;
+            background-color: red;
+            color: #ffffff;
+            text-align: center;
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .footer p, .footer a {
+            color: #ffffff;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        .footer a:hover {
+            color: #ffdddd;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='S.png') }}" alt="SmartSchool Logo">
+                SmartSchool
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h2>Welcome to SmartSchool</h2>
+            <p>Efficient, Modern, and User-Friendly School Management System</p>
+            <a href="#" class="btn cta-btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2>About Our System</h2>
+            <p>
+                SmartSchool is a comprehensive and innovative school management system designed to automate and simplify the day-to-day activities of schools. From attendance tracking to performance reporting, our system covers all aspects of school management.
+            </p>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Student Management</h5>
+                            <p>Seamlessly manage student data, attendance, grades, and much more with ease and accuracy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Teacher Management</h5>
+                            <p>Track teacher performance, schedules, and maintain detailed profiles for a better experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Reporting & Analytics</h5>
+                            <p>Generate comprehensive reports and analytics for student and school performance in real-time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 SmartSchool. All rights reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
