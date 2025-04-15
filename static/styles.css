@@ -1,124 +1,116 @@
-/* General styling */
 body {
+    background-image: url("/static/back3.jpg");
     font-family: 'Arial', sans-serif;
-    background-color:linear-gradient(to right, #fe7b7b, #fa6363);
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
-
 .navbar {
-    background-color: #dc3545;
+    background-color: red;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .navbar-brand {
-    color: #fff !important;
     font-weight: bold;
-    font-size: 1.8rem;
-}
-
-.navbar-nav .nav-link {
-    color: #fff !important;
-    font-weight: bold;
-}
-
-/* Hero Section */
-.hero-section {
-    background-image: url('https://source.unsplash.com/1600x900/?school,education');
-    background-size: cover;
-    background-position: center;
-    color: black;
-    text-align: center;
-    padding: 120px 20px;
-}
-
-.hero-section h1 {
-    font-size: 4rem;
-    font-weight: bold;
-    color:black;
-}
-
-.hero-section p {
-    font-size: 1.2rem;
-}
-
-.cta-btn {
-    background-color: #dc3545;
+    font-size: 1.5rem;
     color: #fff;
-    padding: 10px 25px;
-    border-radius: 50px;
-    font-size: 1.2rem;
-    transition: background-color 0.3s;
+}
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+.navbar-nav .nav-link {
+    color: #ffffff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+    color: #ffdddd;
 }
 
+.hero-section {
+    color: black;
+    padding: 80px 0;
+    text-align: center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #ff6666;
+}
+.hero-section h2 {
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+.hero-section p {
+    font-size: 1.25rem;
+    max-width: 650px;
+    margin: 0 auto;
+}
+.cta-btn {
+    margin-top: 20px;
+    padding: 12px 28px;
+    background-color: #fff;
+    color: #ff4b4b;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 .cta-btn:hover {
-    background-color: #b21f2d;
+    background-color: #ffdddd;
+    transform: translateY(-3px);
 }
 
 /* About Section */
 .about-section {
     padding: 60px 0;
-    background-color: #fff;
-    color: #333;
-}
-
-.about-section h2 {
-    color: #dc3545;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-}
-
-.about-section p {
-    line-height: 1.8;
-}
-
-.card {
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.card-body {
+    background-color: #ffffff;
     text-align: center;
 }
-
+.about-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ff4b4b;
+}
+.about-section p {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-8px);
+}
 .card h5 {
-    color: #dc3545;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    color: #ff4b4b;
+}
+.card p {
+    color: #555;
 }
 
 /* Footer */
 .footer {
-    background-color: #343a40;
-    color: #fff;
-    padding: 40px 0;
+    padding: 20px 0;
+    background-color: red;
+    color: #ffffff;
     text-align: center;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
-.footer a {
-    color: #fff;
-    text-decoration: none;
-    padding: 0 10px;
+.footer p, .footer a {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin: 0;
 }
-
 .footer a:hover {
-    color: #dc3545;
-}
-.mypfp{
-    width: 150px; /* Adjust width */
-    height: 150px; /* Adjust height */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    border-radius: 25px; /* Make it a circle */
-    border: 2px solid #dc3545; /* Optional: Add a border */
-    max-width: 100%;
-}
-
-.message-container {
-    max-height: 300px;
-    overflow-y: auto;
-}
-button.btn-primary {
-    background-color: #007bff;
-    border: none;
-}
-
-button.btn-primary:hover {
-    background-color: #0056b3;
+    color: #ffdddd;
+    text-decoration: underline;
 }

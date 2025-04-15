@@ -1,0 +1,78 @@
+body {
+    background-image: url("/static/back3.jpg");
+    background-size:2600px;
+    background-repeat: no-repeat;
+    font-family: 'Arial', sans-serif;
+}
+.navbar {
+    background-color: red;
+    height: 60px;
+}
+.navbar-brand img {
+    height: 40px; /* Adjust size of the logo */
+    width: auto;
+    margin-right: 6px; /* Space between logo and text */
+    border-radius: 50px;
+}
+.navbar a.navbar-brand {
+    font-weight: bold;
+    color: white;
+    font-size: 1.8rem;
+}
+.navbar .nav-link {
+    color: white !important;
+    font-weight: 500;
+}
+
+/* Login Card */
+.login-card {
+    max-width: 400px;
+    margin: 5% auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.8s ease;
+}
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.login-card h2 {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.form-label {
+    color: #6c757d;
+    font-weight: 500;
+}
+.form-control {
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 0.8rem;
+}
+.btn-cta {
+    width: 100%;
+    background-color: red;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+.btn-cta:hover {
+    background: linear-gradient(to right, #fe7b7b, #fa6363);
+}
+
+/* Custom Footer */
+.footer {
+    text-align: center;
+    color: white;
+    margin-top: 13rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
