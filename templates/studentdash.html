@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='mystyles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='fav.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>SmartSchool</h2>
+            <hr>
+            <ul>
+                <li><a href="#">🏠 Dashboard</a></li>
+                <li><a href="#">📚 Schedule</a></li>
+                <li><a href="#">📝 Assignments</a></li>
+                <li><a href="#">📊 Grades</a></li>
+                <li><a href="#">📨 Messages</a></li>
+                <li><a href="#">📖 Blog</a></li>
+                <li><a href="#">⚙️ Settings</a></li>
+                <li><a href="#" class="logout">Logout</a></li>
+            </ul>
+        </aside>
+
+        <a href="#" class="profile-container">
+            <div class="profile">
+                <img src="/static/profile1.jpg" alt="Profile Photo" class="img-fluid mb-3" id="profile-photo" width="100" alt="Profile Picture">
+                <span>John Peter</span>
+            </div>
+        </a>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section>
+                <div class="calendar text-center" id="calendar">
+                    <h6 id="calendar-month"></h6>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                                <th>Sun</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendar-body">
+                            <!-- Dynamic Calendar -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="dashboard-content">
+                <div class="card-grid">                  
+                    <div class="card">
+                        <h3>Math Homework</h3>
+                        <p>Due tomorrow: Algebra and Geometry exercises.</p>
+                        <button>View Details</button>
+                    </div>
+                    <div class="announcements mt-2">
+                        <div class="card mb-3">
+                            <div class="card-header">Announcement</div>
+                            <div class="card-body">
+                                <p>No classes on Tuesday!</p>
+                                <small>Posted: 3hrs ago</small>
+                            </div>
+                        </div>
+                </div>
+                    <div class="card">
+                        <h3>Physics Notes</h3>
+                        <p>New materials added for Quantum Mechanics.</p>
+                        <button>Access Materials</button>
+                    </div>
+                    <!-- Assignments Section -->
+                    <div class="assignments col-md-12 col-7 mb-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Assignments</h5>
+                            </div>
+                            <div class="card-body">
+                                    <ul class="list-unstyled">
+                                            <li class="mb-3">
+                                                <a href="#" class="text-decoration-none">
+                                                    <strong>Math Assignment</strong>
+                                                </a>
+                                                <p>Complete the tasks given in todays class.</p>
+                                                <small>Due on: Friday</small>
+                                            </li>
+                                    </ul>
+                                    <!-- Link to view all assignments -->
+                                    <div class="mt-3">
+                                        <a href="#" class="btn btn-link">View All Assignments</a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Assignment Upload</h3>
+                        <p>Upload your completed project report here.</p>
+                        <button>Upload</button>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <p>© 2024 SmartSchool. All rights reserved.</p>
+                <p>
+                    <a href="#" class="text-white">Privacy Policy</a> | <a href="#" class="text-white">Terms of Service</a>
+                </p>
+            </footer>
+        </main>
+    </div>
+    <!-- JavaScript for Dynamic Calendar -->
+    <script>
+        function generateCalendar() {
+            const calendarBody = document.getElementById('calendar-body');
+            const monthDisplay = document.getElementById('calendar-month');
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
+            const currentMonth = currentDate.getMonth();
+            const currentDay = currentDate.getDate();
+
+            const months = [
+                'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+
+            monthDisplay.innerText = months[currentMonth] + " " + currentYear;
+
+            // First day of the month
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+
+            // Days in the current month
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            // Clear existing cells
+            calendarBody.innerHTML = "";
+
+            // Create table rows and cells
+            let date = 1;
+            for (let i = 0; i < 6; i++) {  // Maximum of 6 rows
+                const row = document.createElement('tr');
+
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+                    if (i === 0 && j < (firstDay === 0 ? 6 : firstDay - 1)) {
+                        cell.innerText = "";
+                    } else if (date > daysInMonth) {
+                        break;
+                    } else {
+                        cell.innerText = date;
+                        if (date === currentDay) {
+                            cell.classList.add('current-day');
+                        }
+                        date++;
+                    }
+                    row.appendChild(cell);
+                }
+                calendarBody.appendChild(row);
+            }
+        }
+
+        window.onload = generateCalendar;
+    </script>
+</body>
+</html>
