@@ -11,6 +11,15 @@ def login():
 @app.route('/register')
 def register():
     return render_template('register.html')
+@app.route('/contacts')
+def contacts():
+    return render_template('contacts.html')
+@app.route('/services')
+def services():
+    return render_template('services.html')
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 
 
