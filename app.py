@@ -11,6 +11,7 @@ def login():
 @app.route('/register')
 def register():
     return render_template('register.html')
+<<<<<<< HEAD
 @app.route('/contacts')
 def contacts():
     return render_template('contacts.html')
@@ -21,6 +22,11 @@ def services():
 def about():
     return render_template('about.html')
 
+=======
+@app.route('/about')
+def about():
+    return render_template('about.html')
+>>>>>>> d0fb1421fe400488e7f71199ea3c4a7e1ad7ecd8
 
 
 
