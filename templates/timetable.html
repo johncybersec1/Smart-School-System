@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <!-- Include Bootstrap CSS for styling (optional) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='fav.ico') }}" type="image/x-icon">
+    <style>
+        .container{
+            margin-left: 150px;
+        }
+        body {
+            background-image: url('/static/stddash.jpg');
+            background-size:3000px;
+            background-repeat: no-repeat;
+        }
+        .backl{
+            margin: 20px;
+            color: whitesmoke;
+        }
+        .backl a {
+            color: white; /* Sets the text color of the link to white */
+            text-decoration: none; /* Removes the underline from the link */
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Dashboard Link -->
+    <div class="backl">
+        <a href="{{ url_for('dashboard') }}"><i class="fa fa-arrow-left"></i> Back to Dashboard</a>
+    </div>
+    <div class="container mt-4">
+        <h1 class="mb-4">Timetable</h1>
+        <!-- Embed the Google Sheets iframe -->
+        <iframe src="{{ google_sheets_embed_url }}" width=1600px height=800px></iframe>
+    </div>
+</body>
+</html>
