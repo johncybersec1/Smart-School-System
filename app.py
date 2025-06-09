@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from dotenv import load_dotenv
 app = Flask(__name__)
+import feedparser
 
 load_dotenv()
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
@@ -90,6 +91,47 @@ def timetable():
 def logout():
     logout_user()
     return redirect(url_for("login"))
+
+RSS_FEEDS = {
+    "technology": "https://feeds.feedburner.com/TheHackersNews",
+    "science": "https://www.sciencedaily.com/rss/top/science.xml",
+    "education": "https://www.eschoolnews.com/teaching-and-learning/feed/",
+    "health": "https://www.modernhealthcare.com/section/rss/news?days=7&topics=81631",
+    "architecture" : "https://architectureau.com/editorspick/rss.xml",
+    "music" : "https://pitchfork.com/feed/feed-news/rss"
+}
+
+@app.route('/blogs', methods=['GET'])
+@login_required
+def blogs():
+    # Get the selected topic from the query parameter, default to 'technology'
+    topic = request.args.get('topic', 'technology').lower()  # Use .lower() to make it case-insensitive
+    
+    # Check if the selected topic is valid
+    if topic not in RSS_FEEDS:
+        return "Topic not found", 404
+    
+    # Fetch and parse the RSS feed for the selected topic
+    feed = feedparser.parse(RSS_FEEDS[topic])
+    posts = []
+
+    for entry in feed.entries[:10]:  # Limit to 10 posts
+        image_url = None
+        if 'enclosures' in entry and entry.enclosures:
+            image_url = entry.enclosures[0]['url']
+
+        posts.append({
+            "title": entry.title,
+            "link": entry.link,
+            "summary": entry.summary,
+            "published": entry.published,
+            "image_url": image_url
+        })
+    
+    # Debugging: Print out the topic for verification
+    print(f"Requested topic: {topic}")
+
+    return render_template('myblog.html', topic=topic.capitalize(), posts=posts, topics=RSS_FEEDS)
 
 
 if __name__ == '__main__':
